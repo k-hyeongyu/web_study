@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/board")
 public class BoardController {
 
-    private final HomeController homeController;
-
     BoardController(HomeController homeController) {
-        this.homeController = homeController;
     }
 
 	@RequestMapping("/faq")  //   /board/faq

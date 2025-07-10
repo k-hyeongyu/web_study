@@ -11,7 +11,7 @@ public class Request02Controller {
 	@RequestMapping("/url02")
 	public String url02() {
 
-		return "url1";
+		return "url3";
 	}
 
 	// @RequestMapping("/request02/url03")
