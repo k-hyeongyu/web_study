@@ -4,10 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/request02")
+@RequestMapping("/request02") // "/request02" 라는 공통 경로
 public class Request02Controller {
 
 	// @RequestMapping("/request02/url02")
+	// 최종 URL: /request02 + /url02  ==> /request02/url02
 	@RequestMapping("/url02")
 	public String url02() {
 
@@ -15,6 +16,7 @@ public class Request02Controller {
 	}
 
 	// @RequestMapping("/request02/url03")
+	// 최종 URL: /request02/url03
 	@RequestMapping("/url03")
 	public String url03() {
 

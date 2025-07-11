@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,16 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>viewData5</h1>
-
-	<div>
-		<p>${store}</p>
-		<p>${menu}</p>
-	</div>
-	<div>
-		<p>${product.id}</p>
-		<p>${product.name}</p>
-	</div>
+	<h1>/practice04/viewData</h1>
 	
+	<p>${response001}</p>
+	<p>${response099}</p>
+	
+	<p>${transferItem.value001}</p>
+	<p>${transferItem.value099}</p>
 </body>
 </html>
