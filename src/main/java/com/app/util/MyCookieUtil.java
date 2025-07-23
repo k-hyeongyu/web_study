@@ -3,8 +3,6 @@ package com.app.util;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 

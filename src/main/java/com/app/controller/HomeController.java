@@ -3,23 +3,18 @@ package com.app.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-@Controller //어노테이션
+@Controller
 public class HomeController {
 
-//	@RequestMapping("/url1")
-//	public String url1() {
-//		return "url1";
-//	}
-//
-//	@RequestMapping("/url2")
-//	public String url2() {
-//		return "url2"; 
-//	}
-//
-//	@RequestMapping("/url3")
-//	public String url3() {
-//		return "url3";
-//	}
-		//return "home";
+	@RequestMapping("/")
+	public String home() {
+
+		// return "/WEB-INF/views/home.jsp";
+		// return "/WEB-INF/views/mainpage.jsp";
+
+		// --ViewResolver 설정 이후
+		
+		// return "mainpage"
+		return "home";
 	}
+}
