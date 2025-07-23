@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class Room {
 
-	int roodId; //PK기본키 식별자
+	int roomId; //PK기본키 식별자
 	String buildingName; //동 이름
 	int roomNumber; //호실번호 1101 2307
 	int floor; //층수

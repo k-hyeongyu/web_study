@@ -8,4 +8,11 @@ public interface RoomService {
 
 	List<Room> findRoomList();
 		
+	int saveRoom(Room room);
+	
+	int removeRoom(int roomId);
+
+	Room findRoomByRoomId(int roomId);
+	
+	int modifyRoom(Room room);
 }
