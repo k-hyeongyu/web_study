@@ -24,6 +24,29 @@
 		from t_user
 		where id = #{id} 
 	</select>
+	
+	<select id="checkUserLogin" resultType="User" parameterType="User">
+		select *
+		from t_user
+		where id = #{id}
+		  and pw =  #{pw}
+		  and user_type = #{userType}
+	</select>
+	
+	<update id="modifyUserPw" parameterType="User">
+		update t_user
+		set pw = #{pw}
+		where id = #{id}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>
 
 
