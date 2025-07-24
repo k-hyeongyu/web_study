@@ -16,4 +16,6 @@ public interface UserDAO {
 
 	public int modifyUserPw(User user);
 	
+	public int modifyUser(User user);
+	
 }
