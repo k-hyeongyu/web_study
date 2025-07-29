@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.app.dao.room.RoomDAO;
 import com.app.dto.room.Room;
+import com.app.dto.room.RoomSearchCondition;
 
 // 데이터 소스와 통신하는 역할 
 // DB 연결 역할 -> DAO, Repository
@@ -42,12 +43,12 @@ public class RoomDAOImpl implements RoomDAO {
 
 		return result;
 	}
-	
+
 	@Override
 	public Room findRoomByRoomId(int roomId) {
 
 		Room room = sqlSessionTemplate.selectOne("room_mapper.findRoomByRoomId", roomId);
- 
+
 		return room;
 	}
 
@@ -55,17 +56,26 @@ public class RoomDAOImpl implements RoomDAO {
 	public int removeRoom(int roomId) {
 
 		int result = sqlSessionTemplate.delete("room_mapper.removeRoom", roomId);
-		//delete 적용된 행의 수 
-		
+		// delete 적용된 행의 수
+
 		return result;
 	}
-	
+
 	@Override
 	public int modifyRoom(Room room) {
 
 		int result = sqlSessionTemplate.update("room_mapper.modifyRoom", room);
-		
+
 		return result;
 	}
-	
+
+	@Override
+	public List<Room> findRoomListBySearchCondition(RoomSearchCondition roomSearchCondition) {
+
+		List<Room> roomList = sqlSessionTemplate.selectList("room_mapper.findRoomListBySearchCondition",
+				roomSearchCondition);
+
+		return roomList;
+	}
+
 }

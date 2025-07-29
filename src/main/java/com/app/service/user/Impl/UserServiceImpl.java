@@ -117,5 +117,18 @@ public class UserServiceImpl implements UserService {
 		
 		return userList;
 	}
+	
+	@Override
+	public boolean isDuplicatedId(String id) {
+		
+		User user = userDAO.findUserById(id); //해당 ID로 DB에서 조회
+		
+		if(user == null) { //해당 아이디 객체가 없다 -> id값 사용안함, -> 중복 X
+			return false;
+		}else {  //해당 아이디가 있다면 -> id값이 pk , 사용중, -> 중복 O
+			return true;
+		}	
+	}
 
+	
 }
