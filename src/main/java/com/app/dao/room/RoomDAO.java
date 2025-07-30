@@ -8,9 +8,9 @@ import com.app.dto.room.RoomSearchCondition;
 public interface RoomDAO {
 
 	List<Room> findRoomList();
-
+	
 	int saveRoom(Room room);
-
+	
 	Room findRoomByRoomId(int roomId);
 	
 	int removeRoom(int roomId);
@@ -18,5 +18,4 @@ public interface RoomDAO {
 	int modifyRoom(Room room);
 	
 	List<Room> findRoomListBySearchCondition(RoomSearchCondition roomSearchCondition);
-
 }
