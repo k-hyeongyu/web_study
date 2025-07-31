@@ -1,18 +1,22 @@
 package com.app.controller.customer;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
-
 import com.app.common.ApiCommonCode;
 import com.app.common.CommonCode;
+import com.app.controller.study.request.BoardController;
 import com.app.dto.api.ApiResponse;
 import com.app.dto.api.ApiResponseHeader;
 import com.app.dto.user.User;
@@ -26,10 +30,13 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class CustomerController {
 
-	// 사용자서비스 (계정에 관련된 것을 통합 관리 : 고객서비스/관리자서비스)
+    // 사용자서비스 (계정에 관련된 것을 통합 관리 : 고객서비스/관리자서비스)
 
 	@Autowired
 	UserService userService;
+
+    CustomerController(BoardController boardController) {
+    }
 
 	@GetMapping("/customer/signup")
 	public String singup() {
@@ -37,8 +44,24 @@ public class CustomerController {
 	}
 
 	@PostMapping("/customer/signup")
-	public String singupAction(User user) {
-
+	public String singupAction(@Valid User user, BindingResult br) {
+								//유효성 검사			검사 결과
+		
+		//검증 결과에 문제가 있느냐 없느냐
+		
+		if(br.hasErrors()){
+			//문제 내용을 출력
+			List<ObjectError> errorList = br.getAllErrors();
+			for(ObjectError er : errorList) {
+				System.out.println(er.getObjectName());
+				System.out.println(er.getDefaultMessage());
+				System.out.println(er.getCode());
+				System.out.println(er.getCodes()[0]);
+			}
+			return "customer/signup";
+		}
+		
+		
 		// 사용자 회원가입 -> 저장
 		int result = userService.saveCustomerUser(user);
 
