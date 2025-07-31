@@ -8,6 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style>
+	.error-msg {
+		color: red;
+	}
+</style>
+
 </head>
 <body>
 	<h1>signUp 회원가입 페이지</h1>
