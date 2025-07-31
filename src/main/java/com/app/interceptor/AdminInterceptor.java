@@ -23,7 +23,7 @@ public class AdminInterceptor implements HandlerInterceptor{
 		//admin 경로로 시작하는 관리자 페이지에 접속하는 경우
 		
 		//로그인이 되어 있으며 + 로그인한 계정이 관리자 계정(ADM)
-		
+		/*
 		if(LoginManager.isLogin(request)) {
 			
 			//관리자 여부 ADM인가?
@@ -45,6 +45,9 @@ public class AdminInterceptor implements HandlerInterceptor{
 			//response.sendRedirect("/admin/login");
 			response.sendRedirect("/error");
 			return false;
+			
 		} 
+		*/
+		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 }
