@@ -32,7 +32,8 @@
 		from t_user
 		where id = #{id}
 		and pw = #{pw}
-		and user_type = #{userType}
+		and
+		user_type = #{userType}
 	</select>
 
 	<update id="modifyUserPw" parameterType="User">
@@ -148,6 +149,22 @@
 		<!-- </if> -->
 	</select>
 
+	<insert id="saveUserProfileImage"
+		parameterType="UserProfileImage">
+		INSERT INTO USER_PROFILE_IMAGE
+		VALUES (
+		#{id},
+		#{fileName}
+		)
+	</insert>
+
+
+	<select id="findUserProfileImageById" parameterType="String"
+		resultType="UserProfileImage">
+		select *
+		from user_profile_image
+		where id = #{id}
+	</select>
 
 </mapper>
 
